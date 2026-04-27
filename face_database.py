@@ -26,7 +26,6 @@ try:
         QDRANT_PORT,
         QDRANT_COLLECTION,
         QDRANT_VECTOR_SIZE,
-        ENROLLED_FACES_DIR,
         RECOGNITION_THRESHOLD,
     )
 except ImportError:
@@ -35,7 +34,6 @@ except ImportError:
         QDRANT_PORT,
         QDRANT_COLLECTION,
         QDRANT_VECTOR_SIZE,
-        ENROLLED_FACES_DIR,
         RECOGNITION_THRESHOLD,
     )
 
@@ -47,7 +45,6 @@ class FaceDatabase:
     """
 
     def __init__(self):
-        self._ensure_dirs()
         self.collection_name = QDRANT_COLLECTION
         
         # Connect to Qdrant
@@ -63,10 +60,6 @@ class FaceDatabase:
             print(f"[FaceDB] ERROR: Could not connect to Qdrant: {e}")
             print(f"[FaceDB] Ensure Qdrant is running on {QDRANT_HOST}:{QDRANT_PORT}")
             raise
-
-    def _ensure_dirs(self):
-        """Create data directories if they don't exist."""
-        os.makedirs(ENROLLED_FACES_DIR, exist_ok=True)
 
     def _ensure_collection(self):
         """Create the Qdrant collection if it doesn't exist."""
