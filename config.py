@@ -29,12 +29,6 @@ QDRANT_PORT = 6333
 QDRANT_COLLECTION = "faces"
 QDRANT_VECTOR_SIZE = 512
 
-# Path to the old face embeddings database (for reference/fallback)
-FACE_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "face_db.json")
-
-# Directory for storing enrolled face images (for reference)
-ENROLLED_FACES_DIR = os.path.join(os.path.dirname(__file__), "data", "enrolled_faces")
-
 # ---- Enrollment ----
 MIN_ENROLLMENT_IMAGES = 3      # Minimum images needed to enroll a person
 MAX_ENROLLMENT_IMAGES = 15     # Maximum images per enrollment
